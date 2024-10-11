@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream TV</title>
+    
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e0e0e;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            width: 95%;
+            max-width: 700px;
+            padding: 10px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #fff700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .header p {
+            font-size: 18px;
+            margin: 0;
+        }
+        .current-time {
+            margin: 0;
+        }
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-top: 58%; /* 16:9 Aspect Ratio */
+            margin-top: 20px;
+            border: 1px solid #00aaff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+        .iframe-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #ff00;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid red;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .iframe-btn:hover {
+            background-color: #d40812;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1c1c1c;
+            margin-top: 20px;
+            color: #fff;
+        }
+        .telegram-btn {
+            display: block;
+            margin: 10px auto;
+            width: 40px; /* Smaller size for responsiveness */
+        }
+        .telegram-btn img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px; /* Smaller title on smaller screens */
+            }
+
+            .header p {
+                font-size: 16px; /* Adjusted font size */
+            }
+
+            .iframe-btn {
+                padding: 8px 16px; /* Smaller buttons */
+                font-size: 14px; /* Smaller text */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 20px; /* Even smaller title */
+            }
+
+            .header p {
+                font-size: 14px; /* Further adjusted font size */
+            }
+
+            .iframe-btn {
+                padding: 6px 12px; /* Even smaller buttons */
+                font-size: 10px; /* Even smaller text */
+            }
+
+            .footer {
+                font-size: 14px; /* Adjust footer text */
+            }
+            logo-foter {
+            width: 60%;
+            height: 10px;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        }
+    
+    
+  
+
+
+    </style>
+</head>
+<body>
+  
+
+
+  
+    
+    <div class="header">
+      
+     
+        <h1>Today's Sports Match</h1>
+        <p class="current-time" id="current-time"></p>
+    </div>
+
+   <div class="container">
+        <!-- Iframe Container -->
+        <div class="iframe-container">
+            <iframe id="match-iframe" src="https://play.footfy.live/api/AGV/play.php?play=346" scrolling="no" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+        </div>
+          
+       
+        <!-- Iframe Source Links -->
+          <center>  
+          <div id="iframe-links">
+          <button class="iframe-btn" onclick="changeIframeSource('Channel-Host/Stream1.html')">Stream 01</button>
+          <button class="iframe-btn" onclick="changeIframeSource('Channel-Host/Stream2.html')">Stream 02</button>
+          <button class="iframe-btn" onclick="changeIframeSource('Channel-Host/Stream3.html')">Stream 03</button>
+           <button class="iframe-btn" onclick="changeIframeSource('https://ritsatv.ru/youtube/football1G.html')">Stream 04</button>
+           <button class="iframe-btn" onclick="changeIframeSource('Channel-Host/Stream5.html')">Stream 05</button>
+          
+          <button class="iframe-btn" onclick="changeIframeSource('https://stream-us-east-1.getpublica.com/cl/241010cs3lt6cf5e68de018i7g/640x360_1000000_0_f.m3u8?i=855_2375')">Stream 06</button>
+          <button class="iframe-btn" onclick="changeIframeSource('https://allinoneott.com/live/player.php?url=https://fifabd.xyz/JOIN@TGxRANAPK33/play.m3u8?id=match-2')">Stream 07</button>
+          <button class="iframe-btn" onclick="changeIframeSource('https://stream.imotv.online/sports/sportstv.php?c=asportshd')">Stream 08</button>
+          <button class="iframe-btn" onclick="changeIframeSource('https://stream.imotv.online/sports/sportstv.php?c=willowusa')">Stream 09</button>
+          <button class="iframe-btn" onclick="changeIframeSource('https://bdixtv247.techpriyo.com/tpl/playid.php?id=CRIC_BUZZ')">Stream 10</button>
+          <button class="iframe-btn" onclick="changeIframeSource('https://bdixtv247.techpriyo.com/tpl/playid.php?id=TNT_1_GB')">Stream 11</button>
+         
+          <button class="iframe-btn" onclick="changeIframeSource('https://stream.imotv.online/sports/sportstv.php?c=ptvpk')">Stream 12</button>
+          <button class="iframe-btn" onclick="changeIframeSource('https://tv.durbinlive.pro/api/live/iframe.php?c=https://streambtw.com/iframe/ch7.php')">Stream 13</button>
+          <button class="iframe-btn" onclick="changeIframeSource('https://stream.imotv.online/sports/sportstv.php?c=tenspk')">Stream 14</button>
+          <button class="iframe-btn" onclick="changeIframeSource('https://stream.imotv.online/toffe/?play=9864cbf691c0')">Stream 15</button>
+              
+          
+          <button class="iframe-btn" onclick="changeIframeSource('https://stream.imotv.online/sports/sportstv.php?c=starhindi')">Stream 16</button>
+           <button class="iframe-btn" onclick="changeIframeSource('https://allinoneott.com/live/player.php?url=https://fifabd.xyz/JOIN@TGxRANAPK33/play.m3u8?id=match-1')">Stream 17</button>
+           <button class="iframe-btn" onclick="changeIframeSource('https://play.footfy.live/api/AGV/play.php?play=346')">Stream 18</button>
+           
+          </div>
+          </center>
+     
+
+
+    <script>
+        // Function to change the iframe source
+        function changeIframeSource(url) {
+            document.getElementById('match-iframe').src = url;
+        }
+
+        // Current time display
+        function updateCurrentTime() {
+            const now = new Date();
+            const currentTime = now.toLocaleTimeString();
+            document.getElementById('current-time').textContent = `Current Time: ${currentTime}`;
+        }
+        setInterval(updateCurrentTime, 1000);
+    </script>
+     
+     <br></br>
+     <br></br>
+     <br> </br>
+         <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+</body>
+</html>
